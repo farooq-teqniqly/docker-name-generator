@@ -1,6 +1,8 @@
 """
 A pig-latinzer
 """
+
+
 def pig_latinize(word_list):
     """
         Pig-latinizes a list of words.

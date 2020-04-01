@@ -2,6 +2,7 @@
     A module that displays a poor-man's bar chart.
 """
 
+
 def render_chart(word_list):
     """
         Renders a bar chart to the console. Each row of the chart contains the frequency
