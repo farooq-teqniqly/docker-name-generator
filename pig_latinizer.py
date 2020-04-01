@@ -18,7 +18,7 @@ def pig_latinize(word_list):
         if len(word.strip()) == 0:
             continue
 
-        if word.lower()[0] in ["a", "e", "i", "o", "u"]:
+        if word.lower()[0] in "aeiou":
             yield word + "ay"
         else:
             yield word[1:] + word[0] + "ay"

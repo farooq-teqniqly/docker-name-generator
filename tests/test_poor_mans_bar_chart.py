@@ -60,3 +60,6 @@ class TestPoorMansBarChart(unittest.TestCase):
         self.assertEqual(1, len(chart["D"]))
 
         zero_frequency_letters = [ chr(n) for n in range(ord("A"), ord("Z") + 1) if chr(n) not in "HELOWRD"]
+
+if __name__ == "__main__":
+    unittest.main()
