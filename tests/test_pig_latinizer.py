@@ -48,5 +48,6 @@ class TestPigLatinizer(unittest.TestCase):
         # Assert
         self.assertEqual(0, len(pig_latinized_words))
 
+
 if __name__ == "__main__":
     unittest.main()

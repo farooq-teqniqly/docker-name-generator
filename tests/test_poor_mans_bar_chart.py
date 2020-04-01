@@ -5,6 +5,7 @@
 import unittest
 from poor_mans_bar_chart import render_chart
 
+
 class TestPoorMansBarChart(unittest.TestCase):
     def test_render_chart_returns_expected_result(self):
         # Arrange
@@ -20,7 +21,7 @@ class TestPoorMansBarChart(unittest.TestCase):
         self.assertEqual(1, len(chart["E"]))
         self.assertEqual(1, len(chart["Y"]))
 
-        zero_frequency_letters = [ chr(n) for n in range(ord("A"), ord("Z") + 1) if chr(n) not in "APLEY"]
+        zero_frequency_letters = [chr(n) for n in range(ord("A"), ord("Z") + 1) if chr(n) not in "APLEY"]
 
         for letter in zero_frequency_letters:
             self.assertEqual(0, len(chart[letter]))
@@ -41,7 +42,7 @@ class TestPoorMansBarChart(unittest.TestCase):
         self.assertEqual(1, len(chart["R"]))
         self.assertEqual(1, len(chart["D"]))
 
-        zero_frequency_letters = [ chr(n) for n in range(ord("A"), ord("Z") + 1) if chr(n) not in "HELOWRD"]
+        zero_frequency_letters = [chr(n) for n in range(ord("A"), ord("Z") + 1) if chr(n) not in "HELOWRD"]
 
     def test_render_ignores_numbers(self):
         # Arrange
@@ -59,7 +60,8 @@ class TestPoorMansBarChart(unittest.TestCase):
         self.assertEqual(1, len(chart["R"]))
         self.assertEqual(1, len(chart["D"]))
 
-        zero_frequency_letters = [ chr(n) for n in range(ord("A"), ord("Z") + 1) if chr(n) not in "HELOWRD"]
+        zero_frequency_letters = [chr(n) for n in range(ord("A"), ord("Z") + 1) if chr(n) not in "HELOWRD"]
+
 
 if __name__ == "__main__":
     unittest.main()
