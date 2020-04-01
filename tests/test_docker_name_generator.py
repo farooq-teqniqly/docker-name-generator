@@ -1,3 +1,7 @@
+"""
+    docker_name_generator tests
+"""
+
 import unittest
 from docker_name_generator import generate_name
 

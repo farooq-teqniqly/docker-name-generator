@@ -1,3 +1,7 @@
+"""
+    A Docker style name generator.
+"""
+
 import io
 import random
 from itertools import islice
@@ -15,9 +19,9 @@ def __read_file(path, target_set):
         None
     """
 
-    with io.open(path, "r", encoding="utf8") as f:
+    with io.open(path, "r", encoding="utf8") as lines:
         try:
-            for line in f:
+            for line in lines:
                 target_set.add(line.replace(" ", "").strip())
         except UnicodeDecodeError:
             pass
@@ -32,8 +36,10 @@ def load_files(names_file, nouns_file):
         nouns_file: The path to the nouns file.
 
     Returns:
-        A two element tuple. The first element is a list containing the names. The second element is a list
-        containing the nouns. The lengths of each list is limited to 1000 elements.
+        A two element tuple. The first element is a list containing
+        the names.
+        The second element is a list containing the nouns.
+        The lengths of each list is limited to 1000 elements.
     """
     max_results_to_return = 1000
     names = set()
@@ -50,8 +56,9 @@ def generate_name(names_nouns_tuple):
     Generates a Docker style name in the format 'name_noun'.
 
     Args:
-        names_nouns_tuple: An two element tuple. The first element is a list containing the names. The second element is
-        a list containing the nouns.
+        names_nouns_tuple: An two element tuple.
+        The first element is a list containing the names.
+        The second element is a list containing the nouns.
     Returns:
         A name in the format 'name_noun'.
     """
