@@ -60,3 +60,36 @@ def find_palindromes(word_list):
     for word in word_list:
         if word.lower() == word[::-1].lower():
             yield word
+
+
+def is_palingram(sentence):
+    """
+        Determines is the given sentence is a palingram.
+
+        Args:
+            sentence: The sentence to check.
+
+        Returns:
+            True if the sentence is a palingram, otherwise false.
+
+        Raises:
+            ValueError: No sentence was specified.
+    """
+
+    if sentence is None:
+        raise ValueError("Specify a sentence to check.")
+
+    if len(sentence.strip()) == 0:
+        return False
+
+    words = sentence.split(" ")
+    normalized_sentence = ""
+
+    for word in words:
+        word = word.strip()
+        if not word[-1].isalpha():
+            word = word[:-1]
+
+        normalized_sentence += word.lower()
+
+    return normalized_sentence == normalized_sentence[::-1]
