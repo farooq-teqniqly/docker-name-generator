@@ -58,7 +58,7 @@ def find_palindromes(word_list):
         raise ValueError("Specify a [list] of words.")
 
     for word in word_list:
-        if word.lower() == word[::-1].lower():
+        if is_palindrome(word):
             yield word
 
 
@@ -90,6 +90,10 @@ def is_palingram(sentence):
         if not word[-1].isalpha():
             word = word[:-1]
 
-        normalized_sentence += word.lower()
+        normalized_sentence += word
 
-    return normalized_sentence == normalized_sentence[::-1]
+    return is_palindrome(normalized_sentence)
+
+
+def is_palindrome(word):
+    return word.lower() == word[::-1].lower()
