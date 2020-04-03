@@ -3,7 +3,7 @@
 """
 
 import unittest
-from palindromer import load_words_from_url, find_palindromes, is_palingram
+from palindromer import load_words_from_url, find_palindromes, is_palingram, find_palingrams
 
 
 class TestPoorMansBarChart(unittest.TestCase):
@@ -81,3 +81,16 @@ class TestPoorMansBarChart(unittest.TestCase):
     def test_is_palingram_when_sentence_is_empty_returns_false(self):
         # Arrange, Act, Assert
         self.assertFalse(is_palingram("  "))
+
+    def test_find_palingrams_returns_expected_result(self):
+        # Arrange
+        # word_list = ["eroded", "dump", "ore", "legs", "sword", "mined", "mud"]
+        word_list = ["fume", "emu"]
+
+        # Act
+        palingrams = list(find_palingrams(word_list))
+
+        # Assert
+        self.assertEqual(2, len(palingrams))
+        self.assertTrue(("eroded", "ore") in palingrams)
+        self.assertTrue(("dump", "mud") in palingrams)

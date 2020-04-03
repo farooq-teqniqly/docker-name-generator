@@ -96,4 +96,37 @@ def is_palingram(sentence):
 
 
 def is_palindrome(word):
+    """
+        Determines if the specified word is a palindrome.
+
+        Args:
+             word: The word to check.
+
+        Returns:
+            True if the word is a palindrome, otherwise False.
+    """
     return word.lower() == word[::-1].lower()
+
+
+def find_palingrams(word_list):
+    """
+        Finds all two word palingrams in the specified word list.
+
+        Args:
+            word_list: The word list to search.
+
+        Returns:
+            A generator containing the palingrams as two word tuples.
+    """
+    words = set(word_list)
+
+    for word in words:
+        end = len(word)
+        reversed_word = word[::-1]
+
+        if end > 1:
+            for i in range(end):
+                if word[i:] == reversed_word[:end - i] and reversed_word[end - i:] in words:
+                    yield word, reversed_word[end - i:]
+                if word[:i] == reversed_word[end - i:] and reversed_word[:end - i] in words:
+                    yield reversed_word[:end - i], word
