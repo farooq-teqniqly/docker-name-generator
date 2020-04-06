@@ -33,4 +33,5 @@ def zip_camtasia_project_files(target_folder, project_file_name):
     with io.open(project_file_name, "r", encoding="utf8") as project_file:
         json_file = json.load(project_file)
         project_files = match("$.sourceBin[*].src", json_file)
+        project_file.append(project_file_name)
         zip_files(os.path.join(target_folder, zip_file_name), project_files)
