@@ -115,7 +115,7 @@ def find_palingrams(word_list):
         Args:
             word_list: The word list to search.
 
-        Returns:
+        Return
             A generator containing the palingrams as two word tuples.
     """
     words = set(word_list)
